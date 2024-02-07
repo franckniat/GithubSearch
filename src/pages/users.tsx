@@ -30,29 +30,29 @@ export default function Users() {
         }
       ).then((response)=>{
         if(!response.ok){
-          message.current?.innerHTML ?? "Network problem";
+          message.current!.innerHTML = "User not found or Network problem !";
+          return;
+        }else{
+          message.current!.innerHTML = "";
+          return response.json();
         }
-        return response.json();
       }).then((data)=>{
-        setTimeout(() => {
           setUserdata(data);
-        }, 1000);
       }).catch((error)=>{
         console.error(error);
-        message.current?.innerHTML ?? "Error : " + error;
-        return null;
       })
       await fetch(`https://api.github.com/users/${username}/repos`,{
         method : "GET",
       }).then((response)=>{
         if(!response.ok){
-          message.current?.innerHTML ?? "Network problem"
+          message.current!.innerHTML = "User not found or Network problem !";
+          return;
+        }else{
+          message.current!.innerHTML = "";
+          return response.json();
         }
-        return response.json()
       }).then((data)=>{
-        setTimeout(() => {
           setUserRepos(data);
-        }, 1000);
       }).catch((error)=>{
         console.error(error);
       })
@@ -76,8 +76,7 @@ export default function Users() {
             Users
           </h1>
           <p className="text-lg leading-6 text-neutral-900 dark:text-neutral-50 mb-3">
-            Get information about a user. You can use the following parameters in the query parameter to get specific
-            information.
+            Get information about a user. You can use the following parameters in the query parameter to get specific information.
           </p>
         </section>
         <section className="my-5 max-w-xl mx-auto">

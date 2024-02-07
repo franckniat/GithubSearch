@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <SearchProvider>
       <ThemeProvider defaultTheme='system' attribute='class' enableSystem>
         <NextUIProvider>
-          <main className={`${dmSans.className} font-sans`}>
+          <main className={`${dmSans.className}`}>
             <Component {...pageProps} />
           </main>
         </NextUIProvider>

@@ -29,29 +29,27 @@ export default function Organizations() {
         }
       ).then((response)=>{
         if(!response.ok){
-          message.current?.innerHTML ?? "Network problem";
+          message.current!.innerHTML = "Organization not found or Network problem !";
+          return;
         }
+        message.current!.innerHTML = ""
         return response.json();
       }).then((data)=>{
-        setTimeout(() => {
           setOrgdata(data);
-        }, 1000);
       }).catch((error)=>{
         console.error(error);
-        message.current?.innerHTML ?? "Error : " + error;
-        return null;
       })
       await fetch(`https://api.github.com/orgs/${orgs}/repos`,{
         method : "GET",
       }).then((response)=>{
         if(!response.ok){
-          message.current?.innerHTML ?? "Network problem"
+          message.current!.innerHTML = "Organization not found or Network problem !"
+          return;
         }
+        message.current!.innerHTML = ""
         return response.json()
       }).then((data)=>{
-        setTimeout(() => {
           setOrgRepos(data);
-        }, 1000);
       }).catch((error)=>{
         console.error(error);
       })

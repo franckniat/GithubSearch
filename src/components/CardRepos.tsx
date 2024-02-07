@@ -11,7 +11,7 @@ export type Repos = {
 export default function CardRepos(props:Repos) {
   return (
     <div className="flex gap-2 flex-col border-b border-neutral-400 py-2">
-        <Link href={props.html_url}>
+        <Link href={props.html_url ? props.html_url : ""}>
             <h1 className="text-xl hover:text-sky-600 font-bold">{props.name}</h1>
         </Link>
         <h3 className="text-neutral-600 dark:text-neutral-500">{props.full_name}</h3>

@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import Navigation from '@/components/Navigation';
 import Link from 'next/link';
-import { ChevronUpSquare, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
           <section className='flex items-center justify-center my-4 gap-5'>
             <Link href='/users' className='px-3 py-2 gap-1 flex items-center rounded bg-sky-600 text-white hover:bg-sky-600/90'>Get Started
             </Link>
-            <Link href="" className='flex items-center gap-1 rounded dark:bg-neutral-50 bg-neutral-800 text-white dark:text-black hover:bg-neutral-800/90 dark:hover:bg-neutral-50/90 px-3 py-2'>Code source <Code/>
+            <Link href="https://github.com/franckniat/GithubSearch" target='_blank' className='flex items-center gap-1 rounded dark:bg-neutral-50 bg-neutral-800 text-white dark:text-black hover:bg-neutral-800/90 dark:hover:bg-neutral-50/90 px-3 py-2'>Code source <Code size={14}/>
             </Link>
           </section>
         </section>
