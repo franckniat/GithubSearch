@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes';
 import localFont from 'next/font/local'
 import { SearchProvider } from '@/context/SearchContext';
 import {NextUIProvider} from "@nextui-org/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const dmSans = localFont({
   src : '../fonts/DMSans-VariableFont_opsz,wght.ttf',
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <SearchProvider>
       <ThemeProvider defaultTheme='system' attribute='class' enableSystem>
         <NextUIProvider>
+          <SpeedInsights />
           <main className={`${dmSans.className}`}>
             <Component {...pageProps} />
           </main>
